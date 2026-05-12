@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jelajah Malang - Panduan Wisata Kota Malang Terlengkap</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Informasi lengkap wisata Malang: Kayutangan, Museum Angkut, Alun-Alun, dan Tugu Kota Malang.">
+    <!-- Bootstrap CSS untuk desain cepat -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1583032015879-e50d332bb330?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        .navbar-brand { font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">JELAJAH MALANG</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#wisata">Daftar Wisata</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header / Hero Section -->
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="display-4">Selamat Datang di Malang</h1>
+            <p class="lead">Temukan keindahan sejarah dan hiburan terbaik di jantung Jawa Timur.</p>
+        </div>
+    </header>
+
+    <!-- Konten Wisata -->
+    <main class="container my-5" id="wisata">
+        <h2 class="text-center mb-4">Destinasi Ikonik</h2>
+        <div class="row g-4">
+            
+            <!-- Wisata 1 -->
+            <div class="col-md-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Kayutangan Heritage</h5>
+                        <p class="card-text">Kawasan bersejarah dengan arsitektur kolonial yang estetik dan kafe bernuansa tempo dulu.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">Baca Selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wisata 2 -->
+            <div class="col-md-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Museum Angkut</h5>
+                        <p class="card-text">Museum transportasi pertama di Asia Tenggara dengan koleksi mobil antik dari berbagai negara.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">Baca Selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wisata 3 -->
+            <div class="col-md-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Alun-Alun Kota</h5>
+                        <p class="card-text">Ruang terbuka hijau di pusat kota, tempat berkumpul keluarga dan dekat dengan Masjid Jami.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">Baca Selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wisata 4 -->
+            <div class="col-md-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Tugu Kota Malang</h5>
+                        <p class="card-text">Monumen kebanggaan warga Malang yang dikelilingi taman teratai yang indah.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">Baca Selengkapnya</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-light py-4 border-top">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 Jelajah Malang Project. Dibuat dengan semangat lokal.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
