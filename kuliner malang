@@ -3,112 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jelajah Malang - Panduan Wisata Kota Malang Terlengkap</title>
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Informasi lengkap wisata Malang: Kayutangan, Museum Angkut, Alun-Alun, dan Tugu Kota Malang.">
-    <!-- Bootstrap CSS untuk desain cepat -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Malang Guide | Destinasi Wisata Ikonik Kota Malang</title>
+    
+    <!-- Meta Tags untuk Google Search -->
+    <meta name="description" content="Panduan wisata terlengkap di Malang: Menjelajahi sejarah Kayutangan, kemegahan Museum Angkut, hingga ikon Tugu Kota.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
-        .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1583032015879-e50d332bb330?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
+        :root {
+            --primary: #2c3e50;
+            --accent: #e67e22;
+            --light: #ecf0f1;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: var(--light);
+            color: var(--primary);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary);
             color: white;
-            padding: 100px 0;
+            padding: 2rem;
             text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        .card-img-top {
-            height: 200px;
-            object-fit: cover;
+
+        /* Container Wisata */
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
         }
-        .navbar-brand { font-weight: bold; }
+
+        .grid-wisata {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Card Style */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Detail Section */
+        #detail-view {
+            background: white;
+            margin-top: 3rem;
+            padding: 2rem;
+            border-radius: 15px;
+            display: none; /* Sembunyi sebelum diklik */
+            animation: fadeIn 0.5s;
+        }
+
+        .tag {
+            background: var(--accent);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Navigasi -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">JELAJAH MALANG</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#wisata">Daftar Wisata</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
-                </ul>
-            </div>
+<header>
+    <h1>PANDUAN WISATA MALANG</h1>
+    <p>Klik destinasi untuk informasi selengkapnya</p>
+</header>
+
+<div class="container">
+    <!-- Grid Menu Utama -->
+    <div class="grid-wisata">
+        <div class="card" onclick="tampilkanDetail('kayutangan')">
+            <h3>🏢 Kayutangan</h3>
         </div>
-    </nav>
-
-    <!-- Header / Hero Section -->
-    <header class="hero-section">
-        <div class="container">
-            <h1 class="display-4">Selamat Datang di Malang</h1>
-            <p class="lead">Temukan keindahan sejarah dan hiburan terbaik di jantung Jawa Timur.</p>
+        <div class="card" onclick="tampilkanDetail('museum')">
+            <h3>🚗 Museum Angkut</h3>
         </div>
-    </header>
-
-    <!-- Konten Wisata -->
-    <main class="container my-5" id="wisata">
-        <h2 class="text-center mb-4">Destinasi Ikonik</h2>
-        <div class="row g-4">
-            
-            <!-- Wisata 1 -->
-            <div class="col-md-3">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Kayutangan Heritage</h5>
-                        <p class="card-text">Kawasan bersejarah dengan arsitektur kolonial yang estetik dan kafe bernuansa tempo dulu.</p>
-                        <a href="#" class="btn btn-outline-primary btn-sm">Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Wisata 2 -->
-            <div class="col-md-3">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Museum Angkut</h5>
-                        <p class="card-text">Museum transportasi pertama di Asia Tenggara dengan koleksi mobil antik dari berbagai negara.</p>
-                        <a href="#" class="btn btn-outline-primary btn-sm">Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Wisata 3 -->
-            <div class="col-md-3">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Alun-Alun Kota</h5>
-                        <p class="card-text">Ruang terbuka hijau di pusat kota, tempat berkumpul keluarga dan dekat dengan Masjid Jami.</p>
-                        <a href="#" class="btn btn-outline-primary btn-sm">Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Wisata 4 -->
-            <div class="col-md-3">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">Tugu Kota Malang</h5>
-                        <p class="card-text">Monumen kebanggaan warga Malang yang dikelilingi taman teratai yang indah.</p>
-                        <a href="#" class="btn btn-outline-primary btn-sm">Baca Selengkapnya</a>
-                    </div>
-                </div>
-            </div>
-
+        <div class="card" onclick="tampilkanDetail('alunalun')">
+            <h3>🌳 Alun-Alun</h3>
         </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-light py-4 border-top">
-        <div class="container text-center">
-            <p class="mb-0">&copy; 2026 Jelajah Malang Project. Dibuat dengan semangat lokal.</p>
+        <div class="card" onclick="tampilkanDetail('tugu')">
+            <h3>🗼 Tugu Malang</h3>
         </div>
-    </footer>
+    </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Area Detail (Akan berubah isinya) -->
+    <div id="detail-view">
+        <div id="isi-detail">
+            <!-- Konten dimasukkan via JavaScript -->
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 Project Website Wisata Malang - Dibuat untuk Publik.
+</footer>
+
+<script>
+    const dataWisata = {
+        kayutangan: {
+            judul: "Heritage Kayutangan",
+            tag: "Wisata Sejarah & Foto",
+            deskripsi: "Kawasan pusat kota lama Malang. Menampilkan bangunan kolonial Belanda yang masih terjaga. Sangat cocok dinikmati malam hari dengan lampu-lampu hias bergaya klasik.",
+            info: "Buka 24 jam. Banyak tersedia cafe aesthetic dan spot foto gratis."
+        },
+        museum: {
+            judul: "Museum Angkut",
+            tag: "Wisata Edukasi & Keluarga",
+            deskripsi: "Museum transportasi terbesar di Asia Tenggara. Memiliki zona-zona negara yang sangat mendetail, dari zona Hollywood hingga zona Eropa Klasik.",
+            info: "Lokasi: Kota Batu (dekat Malang). Tiket masuk mulai Rp100.000 - Rp120.000."
+        },
+        alunalun: {
+            judul: "Alun-Alun Kota Malang",
+            tag: "Wisata Rakyat",
+            deskripsi: "Pusat kegiatan warga. Memiliki air mancur, area bermain anak, dan ribuan burung merpati yang bisa diberi makan. Berseberangan dengan Masjid Agung Jami.",
+            info: "Gratis. Tips: Datang sore hari untuk menikmati suasana santai bersama warga lokal."
+        },
+        tugu: {
+            judul: "Monumen Tugu (Alun-Alun Bundar)",
+            tag: "Landmark Kota",
+            deskripsi: "Simbol perlawanan rakyat Malang. Dikelilingi kolam teratai yang sangat indah dan Balai Kota Malang. Salah satu taman kota tercantik di Indonesia.",
+            info: "Lokasi strategis di depan Stasiun Malang Kota Baru. Sangat indah saat bunga teratai mekar."
+        }
+    };
+
+    function tampilkanDetail(kunci) {
+        const item = dataWisata[kunci];
+        const view = document.getElementById('detail-view');
+        const isi = document.getElementById('isi-detail');
+
+        view.style.display = 'block';
+        isi.innerHTML = `
+            <span class="tag">${item.tag}</span>
+            <h2>${item.judul}</h2>
+            <p><strong>Tentang:</strong> ${item.deskripsi}</p>
+            <p><strong>Info Tambahan:</strong> ${item.info}</p>
+            <button onclick="document.getElementById('detail-view').style.display='none'" style="margin-top:10px; cursor:pointer">Tutup</button>
+        `;
+        
+        // Scroll otomatis ke detail
+        view.scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
 </body>
 </html>
