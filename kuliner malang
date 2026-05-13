@@ -1,214 +1,129 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malang Guide | Destinasi Wisata Ikonik Kota Malang</title>
-    <meta name="description" content="Panduan wisata terlengkap di Malang: Menjelajahi sejarah Kayutangan, kemegahan Museum Angkut, hingga ikon Tugu Kota.">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --accent: #e67e22;
-            --light: #ecf0f1;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--light);
-            color: var(--primary);
-        }
-
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        header h1 { font-size: 1.8rem; letter-spacing: 2px; }
-        header p  { margin-top: 0.5rem; opacity: 0.85; }
-
-        .container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .grid-wisata {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .card {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            cursor: pointer;
-            border-bottom: 4px solid var(--accent);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .card h3 { font-size: 1rem; }
-
-        #detail-view {
-            background: white;
-            margin-top: 3rem;
-            padding: 2rem;
-            border-radius: 15px;
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .tag {
-            background: var(--accent);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-
-        #detail-view h2 { margin: 0.5rem 0 1rem; }
-        #detail-view p  { margin-bottom: 0.75rem; line-height: 1.7; }
-
-        .btn-tutup {
-            margin-top: 10px;
-            padding: 8px 20px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-            transition: opacity 0.2s;
-        }
-
-        .btn-tutup:hover { opacity: 0.85; }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-            color: #7f8c8d;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="description" content="Rekomendasi kuliner khas Malang, Jawa Timur lengkap dengan deskripsi dan informasi menarik.">
+  <meta name="keywords" content="kuliner Malang, makanan khas Malang, rekomendasi kuliner Jawa Timur">
+  <meta name="author" content="Kuliner Malang">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuliner Malang - Rekomendasi Makanan Khas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background-color: #00695c;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      width: 90%;
+      margin: auto;
+      padding: 20px;
+    }
+    .search-box {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .search-box input {
+      width: 60%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+    .kuliner-card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+    }
+    .kuliner-card img {
+      width: 150px;
+      height: 100px;
+      border-radius: 8px;
+      margin-right: 20px;
+      object-fit: cover;
+    }
+    .kuliner-card h2 {
+      margin: 0;
+      color: #00695c;
+    }
+    footer {
+      background-color: #00695c;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Kuliner Malang</h1>
+    <p>Rekomendasi makanan khas Malang, Jawa Timur</p>
+  </header>
 
-<header>
-    <h1>PANDUAN WISATA MALANG</h1>
-    <p>Klik destinasi untuk informasi selengkapnya</p>
-</header>
-
-<div class="container">
-    <div class="grid-wisata" id="grid-wisata"></div>
-    <div id="detail-view">
-        <span class="tag" id="detail-tag"></span>
-        <h2 id="detail-judul"></h2>
-        <p><strong>Tentang:</strong> <span id="detail-deskripsi"></span></p>
-        <p><strong>Info Tambahan:</strong> <span id="detail-info"></span></p>
-        <button class="btn-tutup" id="btn-tutup">Tutup</button>
+  <div class="container">
+    <!-- Search Box -->
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Cari kuliner (contoh: bakso, rawon, pecel)...">
     </div>
-</div>
 
-<footer>
-    &copy; 2026 Project Website Wisata Malang - Dibuat untuk Publik.
-</footer>
+    <!-- Kuliner Cards -->
+    <div class="kuliner-card" data-category="gurih daging bakso">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Bakso_Malang.jpg" alt="Bakso Malang">
+      <div>
+        <h2>Bakso Malang</h2>
+        <p>Bakso Malang terkenal dengan variasi isi seperti bakso halus, bakso urat, tahu isi, siomay, dan pangsit goreng. Kuahnya gurih dan segar.</p>
+      </div>
+    </div>
 
-<script>
-    // ── Data ──────────────────────────────────────────────────────────────
-    const dataWisata = [
-        {
-            id: "kayutangan",
-            emoji: "🏢",
-            judul: "Heritage Kayutangan",
-            tag: "Wisata Sejarah & Foto",
-            deskripsi: "Kawasan pusat kota lama Malang. Menampilkan bangunan kolonial Belanda yang masih terjaga. Sangat cocok dinikmati malam hari dengan lampu-lampu hias bergaya klasik.",
-            info: "Buka 24 jam. Banyak tersedia cafe aesthetic dan spot foto gratis."
-        },
-        {
-            id: "museum",
-            emoji: "🚗",
-            judul: "Museum Angkut",
-            tag: "Wisata Edukasi & Keluarga",
-            deskripsi: "Museum transportasi terbesar di Asia Tenggara. Memiliki zona-zona negara yang sangat mendetail, dari zona Hollywood hingga zona Eropa Klasik.",
-            info: "Lokasi: Kota Batu (dekat Malang). Tiket masuk mulai Rp100.000 - Rp120.000."
-        },
-        {
-            id: "alunalun",
-            emoji: "🌳",
-            judul: "Alun-Alun Kota Malang",
-            tag: "Wisata Rakyat",
-            deskripsi: "Pusat kegiatan warga. Memiliki air mancur, area bermain anak, dan ribuan burung merpati yang bisa diberi makan. Berseberangan dengan Masjid Agung Jami.",
-            info: "Gratis. Tips: Datang sore hari untuk menikmati suasana santai bersama warga lokal."
-        },
-        {
-            id: "tugu",
-            emoji: "🗼",
-            judul: "Monumen Tugu (Alun-Alun Bundar)",
-            tag: "Landmark Kota",
-            deskripsi: "Simbol perlawanan rakyat Malang. Dikelilingi kolam teratai yang sangat indah dan Balai Kota Malang. Salah satu taman kota tercantik di Indonesia.",
-            info: "Lokasi strategis di depan Stasiun Malang Kota Baru. Sangat indah saat bunga teratai mekar."
+    <div class="kuliner-card" data-category="gurih sup daging rawon">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Rawon.jpg" alt="Rawon">
+      <div>
+        <h2>Rawon</h2>
+        <p>Rawon adalah sup daging khas Jawa Timur dengan kuah hitam dari kluwek. Rasanya gurih dan biasanya disajikan dengan nasi hangat.</p>
+      </div>
+    </div>
+
+    <div class="kuliner-card" data-category="sayuran pedas kacang pecel">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Pecel.jpg" alt="Nasi Pecel">
+      <div>
+        <h2>Nasi Pecel</h2>
+        <p>Nasi pecel terdiri dari sayuran rebus dengan sambal kacang khas. Di Malang, pecel sering disajikan dengan rempeyek atau tempe goreng.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Kuliner Malang | Semua hak cipta dilindungi</p>
+  </footer>
+
+  <script>
+    // Fungsi pencarian
+    document.getElementById("searchInput").addEventListener("keyup", function() {
+      let filter = this.value.toLowerCase();
+      let cards = document.getElementsByClassName("kuliner-card");
+
+      for (let i = 0; i < cards.length; i++) {
+        let title = cards[i].getElementsByTagName("h2")[0].innerText.toLowerCase();
+        let category = cards[i].getAttribute("data-category").toLowerCase();
+
+        if (title.includes(filter) || category.includes(filter)) {
+          cards[i].style.display = "flex";
+        } else {
+          cards[i].style.display = "none";
         }
-    ];
-
-    // ── Render kartu ──────────────────────────────────────────────────────
-    const grid = document.getElementById("grid-wisata");
-
-    dataWisata.forEach(function(item) {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = "<h3>" + item.emoji + " " + item.judul + "</h3>";
-        card.addEventListener("click", function() {
-            tampilkanDetail(item);
-        });
-        grid.appendChild(card);
+      }
     });
-
-    // ── Tampilkan detail ──────────────────────────────────────────────────
-    const detailView    = document.getElementById("detail-view");
-    const detailTag     = document.getElementById("detail-tag");
-    const detailJudul   = document.getElementById("detail-judul");
-    const detailDesk    = document.getElementById("detail-deskripsi");
-    const detailInfo    = document.getElementById("detail-info");
-
-    function tampilkanDetail(item) {
-        detailTag.textContent   = item.tag;
-        detailJudul.textContent = item.judul;
-        detailDesk.textContent  = item.deskripsi;
-        detailInfo.textContent  = item.info;
-
-        detailView.style.display = "block";
-        detailView.style.animation = "none";
-        detailView.offsetHeight; // trigger reflow agar animasi ulang
-        detailView.style.animation = "";
-
-        detailView.scrollIntoView({ behavior: "smooth" });
-    }
-
-    // ── Tombol tutup ──────────────────────────────────────────────────────
-    document.getElementById("btn-tutup").addEventListener("click", function() {
-        detailView.style.display = "none";
-    });
-</script>
-
+  </script>
 </body>
 </html>
