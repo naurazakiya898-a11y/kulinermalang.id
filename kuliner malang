@@ -1,183 +1,37 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malang Guide | Destinasi Wisata Ikonik Kota Malang</title>
-    
-    <!-- Meta Tags untuk Google Search -->
-    <meta name="description" content="Panduan wisata terlengkap di Malang: Menjelajahi sejarah Kayutangan, kemegahan Museum Angkut, hingga ikon Tugu Kota.">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --accent: #e67e22;
-            --light: #ecf0f1;
-        }
+import React from "react"; import { Card, CardContent } from "@/components/ui/card"; import { MapPin } from "lucide-react"; import { motion } from "framer-motion";
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            background-color: var(--light);
-            color: var(--primary);
-        }
+const wisataData = [ { title: "Kayutangan Heritage", description: "Kayutangan Heritage adalah kawasan wisata sejarah di Kota Malang yang terkenal dengan bangunan kolonial, spot foto estetik, kuliner, dan suasana jalanan klasik.", location: "Jl. Basuki Rahmat, Kota Malang", }, { title: "Museum Angkut", description: "Museum Angkut merupakan museum transportasi modern dengan koleksi kendaraan dari berbagai negara, zona tematik, dan wahana edukatif.", location: "Kota Batu, Malang Raya", }, { title: "Alun-Alun Kota Malang", description: "Alun-Alun Kota Malang adalah ruang terbuka hijau ikonik dengan taman, air mancur, area bermain, dan tempat bersantai masyarakat.", location: "Jl. Merdeka Selatan, Kota Malang", }, { title: "Tugu Kota Malang", description: "Tugu Kota Malang merupakan landmark bersejarah yang berada di depan Balai Kota Malang dengan taman bunga yang indah dan suasana asri.", location: "Jl. Tugu, Kota Malang", }, ];
 
-        /* Header */
-        header {
-            background-color: var(--primary);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+export default function WisataMalangWebsite() { return ( <div className="min-h-screen bg-slate-100 p-6"> <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-5xl mx-auto" > <header className="text-center mb-10"> <h1 className="text-4xl font-bold text-slate-800">Wisata Kota Malang</h1> <p className="text-slate-600 mt-2"> Informasi lengkap destinasi wisata populer di Kota Malang dan sekitarnya </p> <p className="text-sm text-blue-600 mt-2"> Domain rekomendasi: www.wisatamalangku.com </p> </header>
 
-        /* Container Wisata */
-        .container {
-            max-width: 1000px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .grid-wisata {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        /* Card Style */
-        .card {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-bottom: 4px solid var(--accent);
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        /* Detail Section */
-        #detail-view {
-            background: white;
-            margin-top: 3rem;
-            padding: 2rem;
-            border-radius: 15px;
-            display: none; /* Sembunyi sebelum diklik */
-            animation: fadeIn 0.5s;
-        }
-
-        .tag {
-            background: var(--accent);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-            color: #7f8c8d;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <h1>PANDUAN WISATA MALANG</h1>
-    <p>Klik destinasi untuk informasi selengkapnya</p>
-</header>
-
-<div class="container">
-    <!-- Grid Menu Utama -->
-    <div class="grid-wisata">
-        <div class="card" onclick="tampilkanDetail('kayutangan')">
-            <h3>🏢 Kayutangan</h3>
-        </div>
-        <div class="card" onclick="tampilkanDetail('museum')">
-            <h3>🚗 Museum Angkut</h3>
-        </div>
-        <div class="card" onclick="tampilkanDetail('alunalun')">
-            <h3>🌳 Alun-Alun</h3>
-        </div>
-        <div class="card" onclick="tampilkanDetail('tugu')">
-            <h3>🗼 Tugu Malang</h3>
-        </div>
+<div className="grid md:grid-cols-2 gap-6">
+      {wisataData.map((item, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: index * 0.1 }}
+        >
+          <Card className="rounded-2xl shadow-lg">
+            <CardContent className="p-6">
+              <h2 className="text-2xl font-semibold text-slate-800 mb-2">
+                {item.title}
+              </h2>
+              <p className="text-slate-600 mb-4">{item.description}</p>
+              <div className="flex items-center gap-2 text-sm text-slate-500">
+                <MapPin size={16} />
+                <span>{item.location}</span>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+      ))}
     </div>
 
-    <!-- Area Detail (Akan berubah isinya) -->
-    <div id="detail-view">
-        <div id="isi-detail">
-            <!-- Konten dimasukkan via JavaScript -->
-        </div>
-    </div>
+    <footer className="text-center mt-10 text-sm text-slate-500">
+      © 2026 Wisata Kota Malang | Search Engine Optimized Website
+    </footer>
+  </motion.div>
 </div>
 
-<footer>
-    &copy; 2026 Project Website Wisata Malang - Dibuat untuk Publik.
-</footer>
-
-<script>
-    const dataWisata = {
-        kayutangan: {
-            judul: "Heritage Kayutangan",
-            tag: "Wisata Sejarah & Foto",
-            deskripsi: "Kawasan pusat kota lama Malang. Menampilkan bangunan kolonial Belanda yang masih terjaga. Sangat cocok dinikmati malam hari dengan lampu-lampu hias bergaya klasik.",
-            info: "Buka 24 jam. Banyak tersedia cafe aesthetic dan spot foto gratis."
-        },
-        museum: {
-            judul: "Museum Angkut",
-            tag: "Wisata Edukasi & Keluarga",
-            deskripsi: "Museum transportasi terbesar di Asia Tenggara. Memiliki zona-zona negara yang sangat mendetail, dari zona Hollywood hingga zona Eropa Klasik.",
-            info: "Lokasi: Kota Batu (dekat Malang). Tiket masuk mulai Rp100.000 - Rp120.000."
-        },
-        alunalun: {
-            judul: "Alun-Alun Kota Malang",
-            tag: "Wisata Rakyat",
-            deskripsi: "Pusat kegiatan warga. Memiliki air mancur, area bermain anak, dan ribuan burung merpati yang bisa diberi makan. Berseberangan dengan Masjid Agung Jami.",
-            info: "Gratis. Tips: Datang sore hari untuk menikmati suasana santai bersama warga lokal."
-        },
-        tugu: {
-            judul: "Monumen Tugu (Alun-Alun Bundar)",
-            tag: "Landmark Kota",
-            deskripsi: "Simbol perlawanan rakyat Malang. Dikelilingi kolam teratai yang sangat indah dan Balai Kota Malang. Salah satu taman kota tercantik di Indonesia.",
-            info: "Lokasi strategis di depan Stasiun Malang Kota Baru. Sangat indah saat bunga teratai mekar."
-        }
-    };
-
-    function tampilkanDetail(kunci) {
-        const item = dataWisata[kunci];
-        const view = document.getElementById('detail-view');
-        const isi = document.getElementById('isi-detail');
-
-        view.style.display = 'block';
-        isi.innerHTML = `
-            <span class="tag">${item.tag}</span>
-            <h2>${item.judul}</h2>
-            <p><strong>Tentang:</strong> ${item.deskripsi}</p>
-            <p><strong>Info Tambahan:</strong> ${item.info}</p>
-            <button onclick="document.getElementById('detail-view').style.display='none'" style="margin-top:10px; cursor:pointer">Tutup</button>
-        `;
-        
-        // Scroll otomatis ke detail
-        view.scrollIntoView({ behavior: 'smooth' });
-    }
-</script>
-
-</body>
-</html>
+); }
