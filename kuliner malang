@@ -1,37 +1,41 @@
-import React from "react"; import { Card, CardContent } from "@/components/ui/card"; import { MapPin } from "lucide-react"; import { motion } from "framer-motion";
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wisata Malang Terlengkap</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; background: #f4f4f4; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; border-bottom: 2px solid #e67e22; padding-bottom: 10px; }
+        .lokasi { margin-bottom: 20px; padding: 15px; border-left: 5px solid #e67e22; background: #fff9f4; }
+        h3 { margin-top: 0; color: #e67e22; }
+    </style>
+</head>
+<body>
 
-const wisataData = [ { title: "Kayutangan Heritage", description: "Kayutangan Heritage adalah kawasan wisata sejarah di Kota Malang yang terkenal dengan bangunan kolonial, spot foto estetik, kuliner, dan suasana jalanan klasik.", location: "Jl. Basuki Rahmat, Kota Malang", }, { title: "Museum Angkut", description: "Museum Angkut merupakan museum transportasi modern dengan koleksi kendaraan dari berbagai negara, zona tematik, dan wahana edukatif.", location: "Kota Batu, Malang Raya", }, { title: "Alun-Alun Kota Malang", description: "Alun-Alun Kota Malang adalah ruang terbuka hijau ikonik dengan taman, air mancur, area bermain, dan tempat bersantai masyarakat.", location: "Jl. Merdeka Selatan, Kota Malang", }, { title: "Tugu Kota Malang", description: "Tugu Kota Malang merupakan landmark bersejarah yang berada di depan Balai Kota Malang dengan taman bunga yang indah dan suasana asri.", location: "Jl. Tugu, Kota Malang", }, ];
+<div class="container">
+    <h1>Panduan Wisata Kota Malang</h1>
+    <p>Selamat datang! Berikut adalah informasi lengkap destinasi wisata ikonik di Malang:</p>
 
-export default function WisataMalangWebsite() { return ( <div className="min-h-screen bg-slate-100 p-6"> <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="max-w-5xl mx-auto" > <header className="text-center mb-10"> <h1 className="text-4xl font-bold text-slate-800">Wisata Kota Malang</h1> <p className="text-slate-600 mt-2"> Informasi lengkap destinasi wisata populer di Kota Malang dan sekitarnya </p> <p className="text-sm text-blue-600 mt-2"> Domain rekomendasi: www.wisatamalangku.com </p> </header>
-
-<div className="grid md:grid-cols-2 gap-6">
-      {wisataData.map((item, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: index * 0.1 }}
-        >
-          <Card className="rounded-2xl shadow-lg">
-            <CardContent className="p-6">
-              <h2 className="text-2xl font-semibold text-slate-800 mb-2">
-                {item.title}
-              </h2>
-              <p className="text-slate-600 mb-4">{item.description}</p>
-              <div className="flex items-center gap-2 text-sm text-slate-500">
-                <MapPin size={16} />
-                <span>{item.location}</span>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-      ))}
+    <div class="lokasi">
+        <h3>1. Kayutangan Heritage</h3>
+        <p>Kawasan pusat kota lama dengan bangunan kolonial Belanda. Tempat terbaik untuk jalan-jalan sore dan foto-foto estetik.</p>
     </div>
 
-    <footer className="text-center mt-10 text-sm text-slate-500">
-      © 2026 Wisata Kota Malang | Search Engine Optimized Website
-    </footer>
-  </motion.div>
+    <div class="lokasi">
+        <h3>2. Museum Angkut</h3>
+        <p>Museum transportasi pertama di Asia Tenggara. Berisi koleksi mobil antik dan zona bertema negara-negara di dunia.</p>
+    </div>
+
+    <div class="lokasi">
+        <h3>3. Alun-Alun Kota Malang</h3>
+        <p>Tempat bersantai gratis di jantung kota. Dekat dengan Masjid Jami dan pusat perbelanjaan legendaris.</p>
+    </div>
+
+    <div class="lokasi">
+        <h3>4. Tugu Kota Malang</h3>
+        <p>Landmark sejarah yang dikelilingi taman bunga teratai. Sangat indah saat lampu taman dinyalakan di malam hari.</p>
+    </div>
 </div>
 
-); }
+</body>
+</html>
